@@ -23,10 +23,16 @@ Não há dependências externas para este projeto. O código é escrito em Pytho
 
 ## Colaboradores
 
-- [Seu Nome](https://github.com/seu-usuario) - Desenvolvedor principal
+- [João Victor Soave - RM: 557595](https://github.com/jaoAprendiz)
+- [Felipe Nascimento - RM: 554598](https://github.com/felipe3103)
+- [Henrique Ignacio - RM: 555274](https://github.com/henriqueignacio)
+- [Gustavo Martins - RM: 556956](https://github.com/gustavo190805)
 
 ## Tecnologias Utilizadas
 
 - **Python**: Linguagem de programação principal usada para desenvolver a aplicação.
 - **PEP8**: Guia de estilo para Python, seguido para assegurar a legibilidade e manutenção do código.
 - **Biblioteca Padrão `math`**: Utilizada para funções matemáticas avançadas.
+
+## Linguagem Utilizada
+![](http://ForTheBadge.com/images/badges/made-with-python.svg)
