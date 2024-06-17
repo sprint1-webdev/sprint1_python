@@ -28,6 +28,10 @@ Não há dependências externas para este projeto. O código é escrito em Pytho
 - [Henrique Ignacio - RM: 555274](https://github.com/henriqueignacio)
 - [Gustavo Martins - RM: 556956](https://github.com/gustavo190805)
 
+## Acesso ao Repositório
+
+[Link do Repositório no GitHub](https://github.com/sprint1-webdev/sprint1_python)
+
 ## Tecnologias Utilizadas
 
 - **Python**: Linguagem de programação principal usada para desenvolver a aplicação.
