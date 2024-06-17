@@ -1,69 +1,79 @@
+# SPRINT 01
+
+#Bibliotecas
 import math
 
+# Exibe uma mensagem de boas-vindas ao usuário
 print('*' * 60)
 print('* SEJA BEM-VINDO A MEGA CALCULADORA DA FÓRMULA E EM PYTHON *')
 print('*' * 60)
 
+# Função para validar a entrada do usuário
 def validar_input(tipo, mensagem):
     while True:
-        entrada = input(mensagem)
-        if tipo == 'nome':
-            if entrada.strip() == '':
+        entrada = input(mensagem)  # Solicita a entrada do usuário
+        if tipo == 'nome':  # Se o tipo for 'nome'
+            if entrada.strip() == '':  # Verifica se o nome está vazio
                 print("O nome não pode ser vazio. Por favor, tente novamente.")
             else:
-                return entrada
-        elif tipo == 'numero':
+                return entrada  # Retorna o nome válido
+        elif tipo == 'numero':  # Se o tipo for 'numero'
             try:
-                valor = float(entrada)
-                if valor == 0:
+                valor = float(entrada)  # Converte a entrada para float
+                if valor == 0:  # Verifica se o número é zero
                     print("O número não pode ser zero. Por favor, tente novamente.")
                 else:
-                    return valor
-            except ValueError:
+                    return valor  # Retorna o número válido
+            except ValueError:  # Captura erro de conversão para float
                 print("Entrada inválida. Por favor, digite um número.")
 
+# Função para exibir o menu de opções
 def exibir_menu():
     print('1 - Calcular o tempo médio das voltas dos pilotos')
     print('2 - Calcular a velocidade média do piloto em cada volta')
     print('3 - Calcular o número de voltas de uma pista')
     print('4 - Sair')
     try:
-        opcao = int(input('Digite a opção desejada: '))
+        opcao = int(input('Digite a opção desejada: '))  # Solicita a opção do usuário
     except ValueError:
         print('Opção inválida! Por favor, digite um número.')
         exibir_menu()
         return
 
+    # Seleciona a opção do usuário usando a estrutura 'match'
     match opcao:
         case 1:
             print('----- Calculadora de Tempo Médio do Corredor -----')
-            calc_media_tempo_corredor()
+            calc_media_tempo_corredor()  # Chama a função para calcular a média de tempo do corredor
         case 2:
             print('2 - Calcular a velocidade média do piloto em cada volta')
-            calc_velocidade_media()
+            calc_velocidade_media()  # Chama a função para calcular a velocidade média
         case 3:
             print('3 - Calcular o número de voltas de uma pista')
-            calc_voltas_corrida()
+            calc_voltas_corrida()  # Chama a função para calcular o número de voltas
         case 4:
             print('Saindo do programa...')
-            return
+            return  # Encerra o programa
         case _:
             print('Opção indisponível! Digite uma opção válida: ')
-            exibir_menu()
+            exibir_menu()  # Exibe o menu novamente
 
+# Função para voltar ao menu principal
 def voltar_ao_menu():
     opcao = input('Deseja voltar ao menu principal? (s/n): ').strip().lower()
     if opcao == 's':
-        exibir_menu()
+        exibir_menu()  # Chama o menu principal novamente
     else:
         print('Saindo do programa...')
-        return
+        return  # Encerra o programa
 
+# Função para converter tempo de segundos para minutos e segundos
 def converter_segundos(media_tempo):
     minutos = int(media_tempo // 60)
     segundos = int(media_tempo % 60)
-    print(f'{minutos}m{segundos}s')
+    print(f'{minutos}m{segundos}s')  # Exibe o tempo convertido
 
+# Função para calcular a média de tempo das voltas dos corredores
 def calc_media_tempo_corredor():
     array = []
     numero_voltas = int(validar_input('numero', 'Digite o número de voltas da corrida: '))
@@ -90,8 +100,9 @@ def calc_media_tempo_corredor():
         print(f'{cont}. Corredor: {n[0]} | Tempo: {n[1]:.2f} segundos')
         cont += 1
     print('=' * 50)
-    voltar_ao_menu()
+    voltar_ao_menu()  # Pergunta se o usuário deseja voltar ao menu
 
+# Função para calcular a velocidade média dos corredores
 def calc_velocidade_media():
     array = []
     numero_voltas = int(validar_input('numero', 'Digite o número de voltas: '))
@@ -117,8 +128,9 @@ def calc_velocidade_media():
         print(f'{cont}. Corredor: {n[0]} | Volta: {n[1]} | Velocidade Média: {n[2]:.2f} km/h')
         cont += 1
     print('=' * 60)
-    voltar_ao_menu()
+    voltar_ao_menu()  # Pergunta se o usuário deseja voltar ao menu
 
+# Função para calcular o número de voltas de uma corrida
 def calc_voltas_corrida():
     dist_total = validar_input('numero', 'Digite a distância total da corrida (em km): ')
     comp_pista = validar_input('numero', 'Digite o comprimento da pista (em km): ')
@@ -138,6 +150,7 @@ def calc_voltas_corrida():
         print('=' * 50)
         print(f'Número de voltas da corrida =  {numero_voltas}')
         print('=' * 50)
-    voltar_ao_menu()
+    voltar_ao_menu()  # Pergunta se o usuário deseja voltar ao menu
 
+# Inicializa o programa exibindo o menu principal
 exibir_menu()
