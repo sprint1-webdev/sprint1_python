@@ -121,7 +121,7 @@ def calc_velocidade_media():
         if continuar != 's':
             break
     
-    array.sort(key=lambda x: x[2])
+    array.sort(key=lambda x: x[2], reverse=True)
     print('=' * 60)
     cont = 1
     for n in array:
