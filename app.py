@@ -26,6 +26,7 @@ def exibir_menu():
     print('1 - Calcular o tempo médio das voltas dos pilotos')
     print('2 - Calcular a velocidade média do piloto em cada volta')
     print('3 - Calcular o número de voltas de uma pista')
+    print('4 - Sair')
     try:
         opcao = int(input('Digite a opção desejada: '))
     except ValueError:
@@ -38,14 +39,25 @@ def exibir_menu():
             print('----- Calculadora de Tempo Médio do Corredor -----')
             calc_media_tempo_corredor()
         case 2:
-            print('----- Calculadora de Velocidade Média Do piloto -----')
+            print('2 - Calcular a velocidade média do piloto em cada volta')
             calc_velocidade_media()
         case 3:
-            print('3 - Calculadora de Voltas da Pista')
+            print('3 - Calcular o número de voltas de uma pista')
             calc_voltas_corrida()
+        case 4:
+            print('Saindo do programa...')
+            return
         case _:
             print('Opção indisponível! Digite uma opção válida: ')
             exibir_menu()
+
+def voltar_ao_menu():
+    opcao = input('Deseja voltar ao menu principal? (s/n): ').strip().lower()
+    if opcao == 's':
+        exibir_menu()
+    else:
+        print('Saindo do programa...')
+        return
 
 def converter_segundos(media_tempo):
     minutos = int(media_tempo // 60)
@@ -78,6 +90,7 @@ def calc_media_tempo_corredor():
         print(f'{cont}. Corredor: {n[0]} | Tempo: {n[1]:.2f} segundos')
         cont += 1
     print('=' * 50)
+    voltar_ao_menu()
 
 def calc_velocidade_media():
     array = []
@@ -104,6 +117,7 @@ def calc_velocidade_media():
         print(f'{cont}. Corredor: {n[0]} | Volta: {n[1]} | Velocidade Média: {n[2]:.2f} km/h')
         cont += 1
     print('=' * 60)
+    voltar_ao_menu()
 
 def calc_voltas_corrida():
     dist_total = validar_input('numero', 'Digite a distância total da corrida (em km): ')
@@ -124,5 +138,6 @@ def calc_voltas_corrida():
         print('=' * 50)
         print(f'Número de voltas da corrida =  {numero_voltas}')
         print('=' * 50)
+    voltar_ao_menu()
 
 exibir_menu()
